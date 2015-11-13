@@ -1,0 +1,6 @@
+---
+# service.yaml
+- name: start nginx service
+  service:   name=nginx state=started
+  
+  

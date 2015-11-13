@@ -1,0 +1,5 @@
+---
+# site.yaml  :  playbook geral para sites
+
+- include: www.yaml
+- include: db.yaml

@@ -1,0 +1,7 @@
+---
+#install_nginx.yaml : install nginx
+- hosts: www
+   remote_user: ubuntu
+   sudo: yes
+   roles:
+          - nginx

@@ -1,0 +1,13 @@
+- group:
+	name: devops
+	state:  present
+	
+- name: create devops user with admin privileges
+  user:
+   name: devops
+	comment: "Devops User"
+	uid: 2001
+	group: devops
+        
+
+

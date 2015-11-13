@@ -1,0 +1,5 @@
+---
+### meta role : main.yaml
+dependencies:
+      -   {role:  base }
+      
