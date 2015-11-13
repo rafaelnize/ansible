@@ -1,2 +1,6 @@
 ---
-# handlers file for docker
+# handler main.yaml
+
+- name:  restart Docker service
+  service:   name=docker.io   state=restarted
+   

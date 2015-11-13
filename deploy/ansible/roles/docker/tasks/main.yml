@@ -1,2 +1,6 @@
 ---
-# tasks file for docker
+# task main.yaml
+
+- include: install.yaml
+- include: configure.yaml
+- include: service.yaml

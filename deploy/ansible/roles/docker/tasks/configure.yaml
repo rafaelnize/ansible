@@ -1,0 +1,15 @@
+---
+# configure Docker service
+tasks:
+      - group: name=devops state=present
+      - name: insert ubuntu on docker
+        user: name=ubuntu groups=docker
+
+        pre_tasks:
+          - shell: echo 'Setting up DNS configuration for Docker and restarting service'
+      - lineinfile: dest=/etc/default/docker regexp='^DOCKER_OPTS' line='DOCKER_OPTS="--dns {{ ansible_dns }}"'
+        notify:
+          - restart docker.io
+
+       pre_tasks:
+         - shell: echo 'Done!'

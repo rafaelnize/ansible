@@ -7,8 +7,12 @@
       - group: name=devops state=present
       - name: create devops user with admin previleges
         user: name=devops comment="Devops User" uid=2001 group=devops
-        
+
+      - name: system update
+        action: apt update_cache=yes cache_valid_time=3600
+
       - name: install htop package
         action: apt name=htop state=present update_cache=yes
-        
-        
+
+      - name: install links package
+        action: apt name=htop state=present update_cache=yes

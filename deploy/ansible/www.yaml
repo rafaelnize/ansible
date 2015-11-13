@@ -1,15 +1,13 @@
 ---
 
-#www.yaml  
+#www.yaml
 - hosts: security_group_webservers
   remote_user: ubuntu
   sudo: yes
   pre_tasks:
         - shell: echo 'I":" Beginning to configure web server..'
-  roles: 
-        - nginx
-  
+  roles:
+        - docker
+
   post_tasks:
         - shell: echo 'I":" Done configuring nginx web server...'
-        
-        
