@@ -1,7 +1,7 @@
 ---
 
 #www.yaml  
-- hosts: www
+- hosts: security_group_webservers
   remote_user: ubuntu
   sudo: yes
   pre_tasks:

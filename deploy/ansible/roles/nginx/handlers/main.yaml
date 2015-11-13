@@ -2,5 +2,5 @@
 # handler main.yaml
 
 - name:  restart nginx service
-   service:   name=nginx   state=restarted
+  service:   name=nginx   state=restarted
    
