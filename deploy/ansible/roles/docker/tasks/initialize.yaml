@@ -1,0 +1,9 @@
+---
+# task: initialize docker
+
+- name: ensure docker is running (and enable it at boot)
+  service: name=docker state=started enabled=yes
+
+  handlers:
+   - name: restart docker
+     service: name=docker state=restarted
