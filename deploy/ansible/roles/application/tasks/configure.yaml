@@ -1,0 +1,21 @@
+---
+
+# configure.yaml
+
+-name: data container
+   docker:
+     name: mydata
+     image: ubuntu
+     state: present
+     volumes:
+       - /var/data
+
+-name: application container
+ docker:
+   name: myapplication
+   image: nginx
+   state: reloaded
+   pull: always
+   ports:
+     - "80:9000"
+     - "127.0.0.1:8081:9001/tcp"
