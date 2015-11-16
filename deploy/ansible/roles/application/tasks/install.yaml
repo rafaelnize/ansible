@@ -2,6 +2,16 @@
 
 # task: install.yaml
 
+# Install dependencies
+
+- name: install Docker software dependencies
+  apt: name=python-pip state=latest
+
+- name: install docker-py
+  pip: name=docker-py
+
+
+
 # Create mount point
 
 # vars:

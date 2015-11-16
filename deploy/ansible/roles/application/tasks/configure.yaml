@@ -2,20 +2,52 @@
 
 # configure.yaml
 
--name: data container
-   docker:
+- name: data container
+  docker:
+     docker_api_version: 1.18
      name: mydata
      image: ubuntu
      state: present
      volumes:
        - /var/data
 
--name: application container
- docker:
-   name: myapplication
-   image: nginx
-   state: reloaded
-   pull: always
-   ports:
-     - "80:9000"
-     - "127.0.0.1:8081:9001/tcp"
+#- name: application container
+#  docker:
+#    docker_api_version: 1.18
+#    name: myapplication
+#    image: nginx
+#    net: host  # Fix error invalid network mode default
+#    state: reloaded
+#    pull: always
+#    ports:
+#     - "80:9000"
+#     - "127.0.0.1:8081:9001/tcp"
+
+
+- name: create directory on host
+  file: path=/tmp/dockerbuild/src state=directory mode=0755
+
+- name: copy content files to the docker's build directory
+  copy: src="NodeJsFiles/package.json" dest=/tmp/dockerbuild/
+
+#- name: copy nginx config file 
+#  copy: src="conf/default.conf" dest=/tmp/dockerbuild/src
+
+- name: copy Dockerfile to the docker's build directory
+  copy: src="NodeJsFiles/Dockerfile"  dest=/tmp/dockerbuild/
+
+
+
+# Nao usar o modulo docker_image. Esta depreciado (deprecated)  Use command:
+- name: docker nginx image
+  command: docker build -t build-by-ansible:ex3 /tmp/dockerbuild
+ 
+- name: run docker container
+  docker:
+        name: nodejs
+        image: build-by-ansible:ex3
+        state: reloaded
+        publish_all_ports: yes
+        use_tls: encrypt
+
+

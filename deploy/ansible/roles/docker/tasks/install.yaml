@@ -1,5 +1,5 @@
 ---
 - name: install Docker and ensure its at the latest version
-  apt: name=docker.io state=present force=yes
+  apt: name=docker.io state=latest force=yes
 
 #file: src=/usr/bin/docker.io dst=/usr/local/bin/docker state=link
