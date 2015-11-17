@@ -1,6 +1,7 @@
 ---
-
+- include: setupusers.yml
 - include: instanceMongoMountDevices.yaml
 - include: mongodb.yml
   when: mongodb_enabled
   tags: [mongodb]
+- include: service.yml

@@ -1,0 +1,8 @@
+---
+# setup users and groups
+
+- name: creating mongodb group
+  group: name=mongodb state=present
+- name: create mongodb user
+  user: name=mongodb comment="Mongodb User" group=mongodb state=present
+
