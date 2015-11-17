@@ -8,16 +8,16 @@ mongodb_packages:
 
 mongodb_conf:
   auth: "false"
-  bind_ip: 127.0.0.1
+  bind_ip: 0.0.0.0
   cpu: "true"
-  dbpath: /var/lib/mongodb/
+  dbpath: /data
   # diaglog: 0 # deprecated
   logappend: "true"
-  logpath: /var/log/mongodb/mongod.log
+  logpath: /log/mongod.log
   noauth: "true"
   nohints: "false"
   nohttpinterface: "false"
-  nojournal: "true"
+  nojournal: "false"
   noprealloc: "false"
   noscripting: "false"
   notablescan: "false"
